@@ -31,7 +31,7 @@ const HighlightSelector = () => {
       path: resp.highlight.path,
       title: resp.highlight.title,
       text: resp.highlight.text,
-      textEncoding: resp.highlight.text_encoding,
+      TextEncodingType: resp.highlight.text_encoding,
     }
     console.log(responseHighlight)
     setHighlight(responseHighlight)

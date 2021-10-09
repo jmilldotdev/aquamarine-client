@@ -4,5 +4,5 @@ export interface Highlight {
   path: string
   title: string
   text: string
-  textEncoding: string
+  TextEncodingType: string
 }
