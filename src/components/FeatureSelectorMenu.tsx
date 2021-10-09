@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import { Feature } from '../types'
+import { Feature } from '../common/types'
 
 type FeatureSelectorMenuProps = {
   selectedFeature: Feature

@@ -6,3 +6,13 @@ export interface Highlight {
   text: string
   TextEncodingType: string
 }
+
+export enum Feature {
+  highlightSelector = 'Highlight Selector',
+  imageSearch = 'Image Search',
+  editAdapters = 'Edit Adapters'
+}
+
+export enum AdapterType {
+  local = 'Local Adapter'
+}

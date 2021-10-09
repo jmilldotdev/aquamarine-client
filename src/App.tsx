@@ -2,10 +2,12 @@ import HighlightSelector from './components/HighlightSelector'
 import HighlightScatter from './components/HighlightScatter'
 import FeatureSelectorMenu from './components/FeatureSelectorMenu'
 import { useState } from 'react'
-import { Feature } from './types'
+import { Feature } from './common/types'
+import EditAdapters from './components/EditAdapters'
+import ImageSearch from './components/ImageSearch'
 
 const App = () => {
-  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.highlightSelector)
+  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.editAdapters)
 
   const handleFeatureSelect = (feature: Feature) => {
     setSelectedFeature(feature)
@@ -14,7 +16,8 @@ const App = () => {
     <div className="App">
       <FeatureSelectorMenu selectedFeature={selectedFeature} featureSelectHandler={handleFeatureSelect} />
       {selectedFeature === Feature.highlightSelector && <p>Highlight Selector</p>}
-      {selectedFeature === Feature.imageSearch && <p>Image Search</p>}
+      {selectedFeature === Feature.imageSearch && <ImageSearch />}
+      {selectedFeature === Feature.editAdapters && <EditAdapters />}
       {/* <HighlightSelector />
       <HighlightScatter /> */}
     </div>
