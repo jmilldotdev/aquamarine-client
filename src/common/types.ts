@@ -7,12 +7,18 @@ export interface Highlight {
   TextEncodingType: string
 }
 
+export interface Adapter {
+  alias: string
+  isSelected: boolean
+}
+
 export enum Feature {
   highlightSelector = 'Highlight Selector',
   imageSearch = 'Image Search',
-  editAdapters = 'Edit Adapters'
+  addAdapter = 'Add Adapter',
+  editAdapters = 'Edit Adapters',
 }
 
 export enum AdapterType {
-  local = 'Local Adapter'
+  local = 'Local Adapter',
 }
