@@ -14,8 +14,11 @@ const FeatureSelectorMenu: React.FC<FeatureSelectorMenuProps> = ({ selectedFeatu
         {selectedFeature}
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={() => featureSelectHandler(Feature.highlightSelector)}>{Feature.highlightSelector}</MenuItem>
-        <MenuItem onClick={() => featureSelectHandler(Feature.imageSearch)}>{Feature.imageSearch}</MenuItem>
+        {Object.values(Feature).map(feature => (
+          <MenuItem key={feature} onClick={() => featureSelectHandler(feature)}>
+            {feature}
+          </MenuItem>
+        ))}
       </MenuList>
     </Menu>
   )
