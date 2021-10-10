@@ -10,7 +10,7 @@ import { AdaptersContext } from './contexts/adapters-context'
 import AdapterDisplay from './components/AdapterDisplay'
 
 const App = () => {
-  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.editAdapters)
+  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.imageSearch)
   const [adapters, setAdapters] = useState<Adapter[]>([])
 
   useEffect(() => {
