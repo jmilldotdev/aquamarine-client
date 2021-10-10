@@ -1,4 +1,3 @@
-import HighlightSelector from './components/HighlightSelector'
 import HighlightScatter from './components/HighlightScatter'
 import FeatureSelectorMenu from './components/FeatureSelectorMenu'
 import { useEffect, useState } from 'react'
@@ -8,19 +7,15 @@ import ImageSearch from './components/ImageSearch'
 import EditAdapters from './components/EditAdapters'
 import { AdaptersContext } from './contexts/adapters-context'
 import AdapterDisplay from './components/AdapterDisplay'
+import { getAdapters } from './common/api'
 
 const App = () => {
-  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.imageSearch)
+  const [selectedFeature, setSelectedFeature] = useState<Feature>(Feature.highlightSelector)
   const [adapters, setAdapters] = useState<Adapter[]>([])
 
   useEffect(() => {
     const fetchAdapters = async () => {
-      const response = await fetch('http://localhost:8000/adapters')
-      const data = await response.json()
-      const adapters = data.adapters.map((adapterAlias: string) => ({
-        alias: adapterAlias,
-        isSelected: true,
-      }))
+      const adapters = await getAdapters()
       setAdapters(adapters)
     }
     fetchAdapters()
@@ -49,12 +44,10 @@ const App = () => {
       <AdaptersContext.Provider value={{ adapters, toggleAdapterSelected }}>
         <AdapterDisplay />
         <FeatureSelectorMenu selectedFeature={selectedFeature} featureSelectHandler={handleFeatureSelect} />
-        {selectedFeature === Feature.highlightSelector && <p>Highlight Selector</p>}
+        {selectedFeature === Feature.highlightSelector && <HighlightScatter />}
         {selectedFeature === Feature.imageSearch && <ImageSearch />}
         {selectedFeature === Feature.addAdapter && <AddAdapter />}
         {selectedFeature === Feature.editAdapters && <EditAdapters />}
-        {/* <HighlightSelector />
-        <HighlightScatter /> */}
       </AdaptersContext.Provider>
     </div>
   )

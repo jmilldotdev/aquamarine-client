@@ -22,3 +22,5 @@ export enum Feature {
 export enum AdapterType {
   local = 'Local Adapter',
 }
+
+export type ScatterData = { x: number; y: number; z: number, id: number }[]
