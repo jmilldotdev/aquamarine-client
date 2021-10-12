@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { ScatterChart, CartesianGrid, XAxis, YAxis, Tooltip, Scatter } from 'recharts'
 import { ScatterData } from '../common/types'
 
@@ -10,8 +9,8 @@ interface ScatterDataProps {
 const ZoomableScatter: React.FC<ScatterDataProps> = ({ data, setActiveHighlightIndex }) => {
   return (
     <ScatterChart
-      width={400}
-      height={400}
+      width={700}
+      height={700}
       margin={{
         top: 20,
         right: 20,
